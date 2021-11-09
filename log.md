@@ -2,7 +2,7 @@
  * [mailcatcher](https://mailcatcher.me/)
  * Gem install mailcatcher  
  * config mailcatcher  
-## config femfile   
+## config gemfile   
 
 ## config vue 
  - yarn add vue-turbolinks 
@@ -22,4 +22,6 @@
 - config 
     - initializer/devise mailer config _no-reply@ingez.com_, _reconfirmable = false_ 
 - concerns _logvalidationserror_, user model include  
-- your password can not be blank issue when sign up 
+- your password can not be blank issue when sign up  
+- customize views home, dashboard 
+- 

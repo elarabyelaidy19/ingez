@@ -42,8 +42,8 @@ gem 'gravatar_image_tag'
 gem 'pg' 
 gem 'figaro'
 gem "wysiwyg-rails"
-gem 'public_activity', '~> 1.5'
-
+gem 'public_activity', '~> 1.5' 
+gem 'pry-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

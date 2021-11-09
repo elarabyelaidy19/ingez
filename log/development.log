@@ -582,3 +582,1144 @@ Validation failed!
 Completed 200 OK in 1025ms (Views: 657.7ms | ActiveRecord: 2.3ms)
 
 
+Started GET "/" for ::1 at 2021-11-09 16:09:24 +0200
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?:
+
+Started POST "/__better_errors/f9c93b3628c12b02/variables" for ::1 at 2021-11-09 16:09:24 +0200
+Started GET "/" for ::1 at 2021-11-09 16:10:21 +0200
+  [1m[35m (20.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (43.5ms)
+Completed 200 OK in 139369ms (Views: 139283.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-11-09 16:26:42 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (1700.0ms)
+Completed 200 OK in 2484ms (Views: 2399.5ms | ActiveRecord: 64.0ms)
+
+
+Started POST "/users" for ::1 at 2021-11-09 16:26:49 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kVxycxzL0Pn3pFO5xVVP9iabOO5Ofr8eAqww6lzUbHo4iIpqaAdhcyDUoV6+FDCVxoTCJiweEmkcET8ybHGh1g==", "user"=>{"name"=>"Elaraby Elaidy", "email"=>"elarabyelaidy@gmail.com"}, "commit"=>"Sign up"}
+Unpermitted parameter: :name
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (15.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elarabyelaidy@gmail.com"], ["LIMIT", 1]]
+Validation failed!
+
+  [1m[35mSQL (65.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "elarabyelaidy@gmail.com"], ["confirmation_token", "TaEnFAtWyPjeCTs5yMBq"], ["confirmation_sent_at", "2021-11-09 14:26:49.513129"], ["created_at", "2021-11-09 14:26:49.512705"], ["updated_at", "2021-11-09 14:26:49.512705"]]
+  [1m[35m (28.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1836.0ms
+Sent mail to elarabyelaidy@gmail.com (382.7ms)
+Date: Tue, 09 Nov 2021 16:26:54 +0200
+From: no-reply@ingez.com
+Reply-To: no-reply@ingez.com
+To: elarabyelaidy@gmail.com
+Message-ID: <618a852e9c02_4192ac088b0cfe81044e@DESKTOP-VOU4LF7.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome elarabyelaidy@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=TaEnFAtWyPjeCTs5yMBq">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 5253ms (ActiveRecord: 110.1ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 16:26:54 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 461ms (Views: 361.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=TaEnFAtWyPjeCTs5yMBq" for ::1 at 2021-11-09 16:27:21 +0200
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"TaEnFAtWyPjeCTs5yMBq"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "TaEnFAtWyPjeCTs5yMBq"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2021-11-09 14:27:21.375617"], ["updated_at", "2021-11-09 14:27:21.377565"], ["id", 1]]
+  [1m[35m (31.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 179ms (ActiveRecord: 34.2ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-11-09 16:27:21 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (470.5ms)
+Completed 200 OK in 1236ms (Views: 1233.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-09 16:28:06 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"etU4LvkZpIh2VrJvDz/reZucPh8fENkqIoj1yBypObechc75SCN9ysWsUfmIBNHTd0WwE/tOZDpfTLl/ZeDTXA==", "user"=>{"email"=>"eeee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "eeee@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 1.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"etU4LvkZpIh2VrJvDz/reZucPh8fENkqIoj1yBypObechc75SCN9ysWsUfmIBNHTd0WwE/tOZDpfTLl/ZeDTXA==", "user"=>{"email"=>"eeee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (235.6ms)
+Completed 200 OK in 1259ms (Views: 692.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-11-09 16:28:32 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (317.8ms)
+Completed 200 OK in 942ms (Views: 939.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-09 16:28:35 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZP6jnDGTQJr2pl6PNSGDTl7AO0JXV2hOaCR5+w+hgFO+aMSvOg2DPIl6A8EV6DW3GgTISQvlBIsrTOPmXykaIA==", "user"=>{"email"=>"eeee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "eeee@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 7ms (ActiveRecord: 1.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZP6jnDGTQJr2pl6PNSGDTl7AO0JXV2hOaCR5+w+hgFO+aMSvOg2DPIl6A8EV6DW3GgTISQvlBIsrTOPmXykaIA==", "user"=>{"email"=>"eeee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (280.6ms)
+Completed 200 OK in 1138ms (Views: 787.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=TaEnFAtWyPjeCTs5yMBq" for ::1 at 2021-11-09 16:28:46 +0200
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"TaEnFAtWyPjeCTs5yMBq"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "TaEnFAtWyPjeCTs5yMBq"], ["LIMIT", 1]]
+  Rendering devise/confirmations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/confirmations/new.html.erb within layouts/application (206.8ms)
+Completed 200 OK in 987ms (Views: 964.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 16:36:31 +0200
+Started GET "/users/sign_in" for ::1 at 2021-11-09 16:36:31 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (29.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Processing by Devise::SessionsController#new as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (45.3ms)
+  Rendered devise/shared/_links.html.erb (2.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2844.6ms)
+Completed 200 OK in 113084ms (Views: 112886.5ms | ActiveRecord: 92.1ms)
+
+
+Completed 200 OK in 113265ms (Views: 113070.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-11-09 16:38:33 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (409.9ms)
+Completed 200 OK in 1561ms (Views: 1558.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-11-09 16:38:38 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UiD0BYRW9zBdiwJ2Dirzku+jtVV4pJAG7A6owjRUnaP79Awc8JpGuor78JF1a4zxD7xPnRrEPXHys6caBPFQDw==", "user"=>{"name"=>"Elaraby Elaidy", "email"=>"elarabyelaidy@gmail.com"}, "commit"=>"Sign up"}
+Unpermitted parameter: :name
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elarabyelaidy@gmail.com"], ["LIMIT", 1]]
+Validation failed!
+ - Email has already been taken
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (352.8ms)
+Completed 200 OK in 1693ms (Views: 1201.9ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/users" for ::1 at 2021-11-09 16:38:53 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g1qDEuQJruwp45XpoicZ3ZASOEz73c0zKyB1zJJzh19lCnXFVTN3rpoZdn8lHCN3fMu2QB+DcCNW5Dl76zpttA==", "user"=>{"name"=>"Elaraby Elaidy", "email"=>"eeee@gmail.com"}, "commit"=>"Sign up"}
+Unpermitted parameter: :name
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "eeee@gmail.com"], ["LIMIT", 1]]
+Validation failed!
+
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "eeee@gmail.com"], ["confirmation_token", "-vbkL61MDsQDxeguVyyV"], ["confirmation_sent_at", "2021-11-09 14:38:53.630458"], ["created_at", "2021-11-09 14:38:53.629960"], ["updated_at", "2021-11-09 14:38:53.629960"]]
+  [1m[35m (122.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.9ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 2069.6ms
+Sent mail to eeee@gmail.com (502.5ms)
+Date: Tue, 09 Nov 2021 16:38:58 +0200
+From: no-reply@ingez.com
+Reply-To: no-reply@ingez.com
+To: eeee@gmail.com
+Message-ID: <618a8802e11c4_4d22b2406a5a02822416@DESKTOP-VOU4LF7.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome eeee@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=-vbkL61MDsQDxeguVyyV">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 5978ms (ActiveRecord: 125.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 16:38:59 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 563ms (Views: 441.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=-vbkL61MDsQDxeguVyyV" for ::1 at 2021-11-09 16:39:19 +0200
+Processing by ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"-vbkL61MDsQDxeguVyyV"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "-vbkL61MDsQDxeguVyyV"], ["LIMIT", 1]]
+  Rendering devise/confirmations/show.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_confirmations_show_html_erb__254987015643182626_70227893071460 at /mnt/f/github/ingez/app/views/devise/confirmations/show.html.erb:5)
+  Rendered devise/confirmations/show.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 822ms (Views: 735.2ms | ActiveRecord: 1.6ms)
+
+
+Started PUT "/user/confirmation" for ::1 at 2021-11-09 16:39:36 +0200
+Processing by ConfirmationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NNjEZQ77y2WEnnnZJqzcUfhzSpGCBC8XUS/+drS7bz7SiDKyv8ESJzdkmk+hl+b7FKrEnWZakgcs67LBzfKF1Q==", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "confirmation_token"=>"-vbkL61MDsQDxeguVyyV", "commit"=>"Activate"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "-vbkL61MDsQDxeguVyyV"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Validation failed!
+
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$OSZJWRQhpwjkr9JRPHNMBeT7JCbd5PUmi05l5KzaSro8mxRr6mEPm"], ["updated_at", "2021-11-09 14:39:36.763345"], ["id", 2]]
+  [1m[35m (38.0ms)[0m  [1m[35mCOMMIT[0m
+Validation failed!
+
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2021-11-09 14:39:36.813140"], ["updated_at", "2021-11-09 14:39:36.814931"], ["id", 2]]
+  [1m[35m (23.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 740ms (ActiveRecord: 65.2ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 16:39:36 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 560ms (Views: 463.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 16:39:40 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 586ms (Views: 448.8ms | ActiveRecord: 0.9ms)
+
+
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (36.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2021-11-09 16:45:51 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (20.5ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 137472ms (Views: 137358.3ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-11-09 16:49:04 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (1146.8ms)
+Completed 200 OK in 1745ms (Views: 1720.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-11-09 16:49:10 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9q5aOXGQwuhZ5+spaZUSIz8AkF0+dTE/+5SQfeeIlsdfeqIgBVxzYo6XGc4S1G1A3x9qlVwVnEjlKZ+l1y1baw==", "user"=>{"name"=>"Elaraby Elaidy", "email"=>"elarabyelaidy@gmail.com"}, "commit"=>"Sign up"}
+Unpermitted parameter: :name
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elarabyelaidy@gmail.com"], ["LIMIT", 1]]
+Validation failed!
+
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "elarabyelaidy@gmail.com"], ["confirmation_token", "5tJ-UTdK44Rvdo5a-8D5"], ["confirmation_sent_at", "2021-11-09 14:49:10.473717"], ["created_at", "2021-11-09 14:49:10.473311"], ["updated_at", "2021-11-09 14:49:10.473311"]]
+  [1m[35m (27.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1595.9ms
+Sent mail to elarabyelaidy@gmail.com (186.8ms)
+Date: Tue, 09 Nov 2021 16:49:14 +0200
+From: no-reply@ingez.com
+Reply-To: no-reply@ingez.com
+To: elarabyelaidy@gmail.com
+Message-ID: <618a8a6a56956_9d12ae395dd150017351@DESKTOP-VOU4LF7.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome elarabyelaidy@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=5tJ-UTdK44Rvdo5a-8D5">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 4286ms (ActiveRecord: 30.3ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 16:49:14 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 391ms (Views: 324.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=5tJ-UTdK44Rvdo5a-8D5" for ::1 at 2021-11-09 16:49:25 +0200
+Processing by ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"5tJ-UTdK44Rvdo5a-8D5"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "5tJ-UTdK44Rvdo5a-8D5"], ["LIMIT", 1]]
+  Rendering devise/confirmations/show.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_confirmations_show_html_erb__1139185084618996867_69853232583540 at /mnt/f/github/ingez/app/views/devise/confirmations/show.html.erb:5)
+  Rendered devise/confirmations/show.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 711ms (Views: 635.8ms | ActiveRecord: 1.6ms)
+
+
+Started PUT "/user/confirmation" for ::1 at 2021-11-09 16:49:39 +0200
+Processing by ConfirmationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"clCypPnKusEz3MJq3IsSwU00H6cl+io+ek+N/frQMzqUAERzSPBjg4AmIfxbsChroe2Rq8Gkly4Hi8FKg5nZ0Q==", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "confirmation_token"=>"5tJ-UTdK44Rvdo5a-8D5", "commit"=>"Activate"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "5tJ-UTdK44Rvdo5a-8D5"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+Validation failed!
+
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$k854.JGl0Lucj3iULAtCL.besMM5TZL7PFlcjbVmlSvf3R7AKTJ2y"], ["updated_at", "2021-11-09 14:49:39.668230"], ["id", 3]]
+  [1m[35m (78.1ms)[0m  [1m[35mCOMMIT[0m
+Validation failed!
+
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2021-11-09 14:49:39.753607"], ["updated_at", "2021-11-09 14:49:39.755506"], ["id", 3]]
+  [1m[35m (43.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 604ms (ActiveRecord: 124.5ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 16:49:39 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 391ms (Views: 319.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 16:49:45 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 491ms (Views: 408.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/edit" for ::1 at 2021-11-09 16:50:30 +0200
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (97.3ms)
+Completed 200 OK in 719ms (Views: 708.4ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/users" for ::1 at 2021-11-09 16:50:36 +0200
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9aRM0ky3iE4nPFaPkEBJbQpe43l5bnGeiPcylto1dA9jshgcjuvhEPSxtYzX78D9OGA/JvieTc4YNjfTb9H8yA==", "user"=>{"name"=>"Elaraby Elaidy", "email"=>"elarabyelaidy@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Unpermitted parameter: :name
+Validation failed!
+
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (102.9ms)
+Completed 200 OK in 1106ms (Views: 479.8ms | ActiveRecord: 2.0ms)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[35m (23.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2021-11-09 16:53:17 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 630ms (Views: 515.4ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-11-09 16:53:23 +0200
+
+ActionController::RoutingError - uninitialized constant RegistrationsController:
+
+Started POST "/__better_errors/90fe5498058068c0/variables" for ::1 at 2021-11-09 16:53:23 +0200
+Started GET "/" for ::1 at 2021-11-09 16:55:50 +0200
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (24.4ms)
+Started GET "/" for ::1 at 2021-11-09 16:55:53 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 76153ms (Views: 76023.8ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 74180ms (Views: 73902.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-11-09 16:57:54 +0200
+
+ActionController::RoutingError - uninitialized constant RegistrationsController:
+
+Started POST "/__better_errors/a0c83da87e752aec/variables" for ::1 at 2021-11-09 16:57:54 +0200
+Started GET "/users/sign_up" for ::1 at 2021-11-09 16:59:34 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (1046.2ms)
+Completed 200 OK in 1582ms (Views: 1541.2ms | ActiveRecord: 12.3ms)
+
+
+Started POST "/users" for ::1 at 2021-11-09 16:59:42 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U3YQR35l9btQbZgEj32WJJJAyoZtJiH5Ocga3zBVJni1JuaQz18s+eOXe5IIRqyOfplEiol4nOlEDFZoSRzMkw==", "user"=>{"name"=>"Elaraby Elaidy", "email"=>"elarabyelaidy@gmail.com"}, "commit"=>"Sign up"}
+Unpermitted parameter: :name
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elarabyelaidy@gmail.com"], ["LIMIT", 1]]
+Validation failed!
+
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "elarabyelaidy@gmail.com"], ["confirmation_token", "JwKa6bzqyKQzbxJVaZ7T"], ["confirmation_sent_at", "2021-11-09 14:59:42.237040"], ["created_at", "2021-11-09 14:59:42.236643"], ["updated_at", "2021-11-09 14:59:42.236643"]]
+  [1m[35m (28.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1832.1ms
+Sent mail to elarabyelaidy@gmail.com (177.9ms)
+Date: Tue, 09 Nov 2021 16:59:46 +0200
+From: no-reply@ingez.com
+Reply-To: no-reply@ingez.com
+To: elarabyelaidy@gmail.com
+Message-ID: <618a8ce27b632_a3a2adfca74dbbc8706c@DESKTOP-VOU4LF7.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome elarabyelaidy@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=JwKa6bzqyKQzbxJVaZ7T">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 4798ms (ActiveRecord: 31.9ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 16:59:46 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 497ms (Views: 408.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=JwKa6bzqyKQzbxJVaZ7T" for ::1 at 2021-11-09 16:59:51 +0200
+Processing by ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"JwKa6bzqyKQzbxJVaZ7T"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "JwKa6bzqyKQzbxJVaZ7T"], ["LIMIT", 1]]
+  Rendering devise/confirmations/show.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_confirmations_show_html_erb__429045342973881660_69881332562840 at /mnt/f/github/ingez/app/views/devise/confirmations/show.html.erb:5)
+  Rendered devise/confirmations/show.html.erb within layouts/application (37.9ms)
+Completed 200 OK in 835ms (Views: 768.8ms | ActiveRecord: 1.6ms)
+
+
+Started PUT "/user/confirmation" for ::1 at 2021-11-09 17:00:04 +0200
+Processing by ConfirmationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KaGYPxkiLwQ/YhzkxRq9WYw6he2i6o01dPlqqRMQBujP8W7oqBj2RoyY/3JCIYfzYOML4Ua0MCUJPSYealnsAw==", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "confirmation_token"=>"JwKa6bzqyKQzbxJVaZ7T", "commit"=>"Activate"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "JwKa6bzqyKQzbxJVaZ7T"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+Validation failed!
+
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$G9zwZSr.E5bKDziD7aaDo.n9NezxXpOdmBdxVo.CQlT0.yp5D4R9."], ["updated_at", "2021-11-09 15:00:04.643841"], ["id", 4]]
+  [1m[35m (26.6ms)[0m  [1m[35mCOMMIT[0m
+Validation failed!
+
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2021-11-09 15:00:04.683069"], ["updated_at", "2021-11-09 15:00:04.685067"], ["id", 4]]
+  [1m[35m (34.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 650ms (ActiveRecord: 65.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:00:04 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 516ms (Views: 427.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:00:07 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 586ms (Views: 475.6ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for ::1 at 2021-11-09 17:05:56 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 858ms (ActiveRecord: 0.0ms)
+
+
+
+Webpacker::Manifest::MissingEntryError - Webpacker can't find projekt in /mnt/f/github/ingez/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+  "application.js": "/packs/js/application-2181adcc3224cdc0c9c1.js",
+  "application.js.map": "/packs/js/application-2181adcc3224cdc0c9c1.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-2181adcc3224cdc0c9c1.js"
+      ],
+      "js.map": [
+        "/packs/js/application-2181adcc3224cdc0c9c1.js.map"
+      ]
+    },
+    "hello_vue": {
+      "js": [
+        "/packs/js/hello_vue-48f91238aae37ae8f1a2.js"
+      ],
+      "js.map": [
+        "/packs/js/hello_vue-48f91238aae37ae8f1a2.js.map"
+      ]
+    }
+  },
+  "hello_vue.js": "/packs/js/hello_vue-48f91238aae37ae8f1a2.js",
+  "hello_vue.js.map": "/packs/js/hello_vue-48f91238aae37ae8f1a2.js.map"
+}:
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__1050512896791680576_69881335731120'
+
+Started POST "/__better_errors/277ff4676dc3c0e6/variables" for ::1 at 2021-11-09 17:05:57 +0200
+Started GET "/" for ::1 at 2021-11-09 17:06:45 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 679ms (Views: 499.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:08:22 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 620ms (Views: 532.9ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-11-09 17:08:24 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"s7+hATzSQezQkj23EceaegW+sCSSJ6fZ1fDEU2lkoZZV71fWjeiYrmNo3iGW/KDQ6Wc+KHZ5GsmoNIjkEC1LfQ=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 74ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:08:25 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 442ms (Views: 372.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-11-09 17:08:27 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (155.5ms)
+Completed 200 OK in 698ms (Views: 696.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-11-09 17:08:31 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"shZODSDS8JYOUucfFEx3GywaUA6aptp6OFlvms109z90kcwWKzfGt6wh1N8K0tLN5e45y6HZBu4Y5AjDnOU+Ow==", "user"=>{"name"=>"Elaraby Elaidy", "email"=>"eeee@gmail.com"}, "commit"=>"Sign up"}
+Unpermitted parameter: :name
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "eeee@gmail.com"], ["LIMIT", 1]]
+Validation failed!
+
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "eeee@gmail.com"], ["confirmation_token", "XsxJseGRo7zYhL24epmU"], ["confirmation_sent_at", "2021-11-09 15:08:31.391409"], ["created_at", "2021-11-09 15:08:31.391150"], ["updated_at", "2021-11-09 15:08:31.391150"]]
+  [1m[35m (35.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.2ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1250.8ms
+Sent mail to eeee@gmail.com (51.1ms)
+Date: Tue, 09 Nov 2021 17:08:32 +0200
+From: no-reply@ingez.com
+Reply-To: no-reply@ingez.com
+To: eeee@gmail.com
+Message-ID: <618a8ef0a7708_a3a2adfca74a214871f7@DESKTOP-VOU4LF7.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome eeee@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=XsxJseGRo7zYhL24epmU">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 1567ms (ActiveRecord: 36.9ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:08:32 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 571ms (Views: 443.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=XsxJseGRo7zYhL24epmU" for ::1 at 2021-11-09 17:08:38 +0200
+Processing by ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"XsxJseGRo7zYhL24epmU"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "XsxJseGRo7zYhL24epmU"], ["LIMIT", 1]]
+  Rendering devise/confirmations/show.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_confirmations_show_html_erb__429045342973881660_69881447433440 at /mnt/f/github/ingez/app/views/devise/confirmations/show.html.erb:5)
+  Rendered devise/confirmations/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 686ms (Views: 678.7ms | ActiveRecord: 1.2ms)
+
+
+Started PUT "/user/confirmation" for ::1 at 2021-11-09 17:08:51 +0200
+Processing by ConfirmationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W5vJhqsuXxvLJypUZwixW/+y1GQ0H7bwXyMtUIhIm5moZ4Xi0nqYTQ1QZufpGslP12GdyQZBG6nAnMakuPek8Q==", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "confirmation_token"=>"XsxJseGRo7zYhL24epmU", "commit"=>"Activate"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "XsxJseGRo7zYhL24epmU"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+Validation failed!
+
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$BY/z.vQxjQogE3SnzqLoNefDGSzOwsQGMSJM3GPuxgd2EI4fTFjaK"], ["updated_at", "2021-11-09 15:08:51.417241"], ["id", 5]]
+  [1m[35m (63.3ms)[0m  [1m[35mCOMMIT[0m
+Validation failed!
+
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2021-11-09 15:08:51.488494"], ["updated_at", "2021-11-09 15:08:51.491760"], ["id", 5]]
+  [1m[35m (25.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 453ms (ActiveRecord: 91.8ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:08:51 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Completed 200 OK in 479ms (Views: 399.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:08:56 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Completed 200 OK in 454ms (Views: 356.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:13:30 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1649ms (ActiveRecord: 0.9ms)
+
+
+
+NameError - undefined local variable or method `edit_user_regestration_path' for #<#<Class:0x00007f1d153e09c0>:0x00007f1d0845d540>
+Did you mean?  edit_user_registration_path
+               edit_registration_path
+               edit_user_registration_url
+               cancel_user_registration_path:
+  app/views/layouts/application.html.erb:48:in `_app_views_layouts_application_html_erb__1050512896791680576_69881335580620'
+
+Started POST "/__better_errors/26728875e51517f2/variables" for ::1 at 2021-11-09 17:13:32 +0200
+Started GET "/" for ::1 at 2021-11-09 17:13:36 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1456ms (ActiveRecord: 0.9ms)
+
+
+
+NameError - undefined local variable or method `edit_user_regestration_path' for #<#<Class:0x00007f1d153e09c0>:0x000055bf94e51380>
+Did you mean?  edit_user_registration_path
+               edit_registration_path
+               edit_user_registration_url
+               cancel_user_registration_path:
+  app/views/layouts/application.html.erb:48:in `_app_views_layouts_application_html_erb__1050512896791680576_47140662861520'
+
+Started POST "/__better_errors/01f4d42d62ea554e/variables" for ::1 at 2021-11-09 17:13:39 +0200
+Started GET "/" for ::1 at 2021-11-09 17:15:21 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Completed 200 OK in 546ms (Views: 412.6ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:18:07 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (19.2ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Completed 200 OK in 149646ms (Views: 149562.5ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:21:16 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 5696ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - File to import not found or unreadable: font-awesome-sprockets.
+Load paths:
+  /mnt/f/github/ingez/app/assets/config
+  /mnt/f/github/ingez/app/assets/images
+  /mnt/f/github/ingez/app/assets/javascripts
+  /mnt/f/github/ingez/app/assets/stylesheets
+  /home/elarabyelaidy/.rvm/gems/ruby-2.6.5/gems/wysiwyg-rails-4.0.1/app/assets/javascripts
+  /home/elarabyelaidy/.rvm/gems/ruby-2.6.5/gems/wysiwyg-rails-4.0.1/app/assets/stylesheets
+  /home/elarabyelaidy/.rvm/gems/ruby-2.6.5/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /home/elarabyelaidy/.rvm/gems/ruby-2.6.5/gems/bulma-rails-0.6.2/app/assets/stylesheets
+  /home/elarabyelaidy/.rvm/gems/ruby-2.6.5/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /home/elarabyelaidy/.rvm/gems/ruby-2.6.5/gems/actioncable-5.1.7/lib/assets/compiled
+  /home/elarabyelaidy/.rvm/gems/ruby-2.6.5/gems/actionview-5.1.7/lib/assets/compiled
+  /home/elarabyelaidy/.rvm/gems/ruby-2.6.5/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /mnt/f/github/ingez/node_modules:
+  app/assets/stylesheets/application.scss:31:in `'
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___1884933397738429407_70037333039920'
+
+Started POST "/__better_errors/34ac529abb63aa78/variables" for ::1 at 2021-11-09 17:21:23 +0200
+Started GET "/" for ::1 at 2021-11-09 17:22:39 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (7.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Completed 200 OK in 7219ms (Views: 7018.3ms | ActiveRecord: 0.6ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35m (36.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2021-11-09 17:23:23 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Completed 200 OK in 566ms (Views: 418.6ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-11-09 17:23:33 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"C808Xs2vzBZgPgF83Os4zUEHPdiTLcDwsZqbYYUdFRb4MXA6tPsLQKZJTc9S+UDZadR0daFzbakuJXCVtaIqfg=="}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 121ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:23:33 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 475ms (Views: 392.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:23:36 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 492ms (Views: 391.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-11-09 17:23:39 +0200
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (1135.1ms)
+Completed 200 OK in 1731ms (Views: 1727.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-11-09 17:23:47 +0200
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VZtlrhiaMcsWwxU94G3ODOulCR1uB2N4YrgWnNd0SJv9iR2+wdC6eaOWE7VCFF5nP6K11UZayGb9+CTrm9qN8w==", "user"=>{"name"=>"Elaraby Elaidy", "email"=>"elarabyelaidy@gmail.com"}, "commit"=>"Sign up"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elarabyelaidy@gmail.com"], ["LIMIT", 1]]
+Validation failed!
+
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "elarabyelaidy@gmail.com"], ["confirmation_token", "5DcQ7z2EjWq3YKyyWUQj"], ["confirmation_sent_at", "2021-11-09 15:23:47.917559"], ["created_at", "2021-11-09 15:23:47.917193"], ["updated_at", "2021-11-09 15:23:47.917193"], ["name", "Elaraby Elaidy"]]
+  [1m[35m (26.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.9ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1794.0ms
+Sent mail to elarabyelaidy@gmail.com (153.6ms)
+Date: Tue, 09 Nov 2021 17:23:52 +0200
+From: no-reply@ingez.com
+Reply-To: no-reply@ingez.com
+To: elarabyelaidy@gmail.com
+Message-ID: <618a92881c007_b2b2abac0d66ac81127a@DESKTOP-VOU4LF7.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome elarabyelaidy@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=5DcQ7z2EjWq3YKyyWUQj">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 4685ms (ActiveRecord: 28.9ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:23:52 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 404ms (Views: 323.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:23:57 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 601ms (Views: 494.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=5DcQ7z2EjWq3YKyyWUQj" for ::1 at 2021-11-09 17:24:05 +0200
+Processing by ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"5DcQ7z2EjWq3YKyyWUQj"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "5DcQ7z2EjWq3YKyyWUQj"], ["LIMIT", 1]]
+  Rendering devise/confirmations/show.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_confirmations_show_html_erb__617420836478908496_70037345965420 at /mnt/f/github/ingez/app/views/devise/confirmations/show.html.erb:5)
+  Rendered devise/confirmations/show.html.erb within layouts/application (37.8ms)
+Completed 200 OK in 856ms (Views: 822.1ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/user/confirmation" for ::1 at 2021-11-09 17:24:19 +0200
+Processing by ConfirmationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MuaLFAXy3u4V+UqARuv/aVarzAOtVfEF3RI66XRdpvnUJ369MXdJ0GGrIkUECFMgxCGfHE5ajixFN7W88sIGnQ==", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "confirmation_token"=>"5DcQ7z2EjWq3YKyyWUQj", "commit"=>"Activate"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "5DcQ7z2EjWq3YKyyWUQj"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Validation failed!
+
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$dYibn9acnoWSi3/.CcsPlO8XkXapcRhOcfkLLwZ4M2ulNQ3il6.Re"], ["updated_at", "2021-11-09 15:24:20.395072"], ["id", 6]]
+  [1m[35m (31.8ms)[0m  [1m[35mCOMMIT[0m
+Validation failed!
+
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2021-11-09 15:24:20.433642"], ["updated_at", "2021-11-09 15:24:20.435386"], ["id", 6]]
+  [1m[35m (25.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 720ms (ActiveRecord: 60.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:24:20 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 498ms (Views: 412.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:24:23 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 411ms (Views: 316.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-11-09 17:28:31 +0200
+Processing by RegistrationsController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 12ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:28:31 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (0.8ms)
+  Rendered home/index.html.erb within layouts/application (84.4ms)
+Completed 200 OK in 560ms (Views: 447.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:30:53 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (0.4ms)
+  Rendered home/index.html.erb within layouts/application (98.2ms)
+Completed 200 OK in 673ms (Views: 544.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/edit" for ::1 at 2021-11-09 17:30:56 +0200
+Processing by RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (108.7ms)
+Started DELETE "/users/sign_out" for ::1 at 2021-11-09 17:30:56 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IGe90meU22P2QXFnG/aUe2Bhf0aWLkyBFZi3V8G6hlDGpkh7UxFMXYITGaJZFTgy8ussWXUhM6iNvTgCRyUmNA=="}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 48ms (ActiveRecord: 16.8ms)
+
+
+Completed 200 OK in 758ms (Views: 751.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:30:57 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_home.html.erb (0.7ms)
+  Rendered home/index.html.erb within layouts/application (92.0ms)
+Completed 200 OK in 646ms (Views: 510.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:31:00 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_home.html.erb (0.7ms)
+  Rendered home/index.html.erb within layouts/application (62.5ms)
+Completed 200 OK in 614ms (Views: 503.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:32:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_home.html.erb (0.9ms)
+  Rendered home/index.html.erb within layouts/application (107.0ms)
+Completed 200 OK in 751ms (Views: 620.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-11-09 17:32:43 +0200
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (166.4ms)
+Completed 200 OK in 819ms (Views: 815.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-11-09 17:39:55 +0200
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (246.5ms)
+Completed 200 OK in 1309ms (Views: 1306.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-11-09 17:39:58 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (409.0ms)
+Completed 200 OK in 1115ms (Views: 1079.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-09 17:40:01 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0ZzfMb31lVcgJzBsb/tYMnzozEq9CY7Ie1YwqKwwB8xjEJIoR/u3jt/kBycb/MeW71se1ogObOLL52F1wuFozA==", "user"=>{"email"=>"eeee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "eeee@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 348ms (ActiveRecord: 1.4ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0ZzfMb31lVcgJzBsb/tYMnzozEq9CY7Ie1YwqKwwB8xjEJIoR/u3jt/kBycb/MeW71se1ogObOLL52F1wuFozA==", "user"=>{"email"=>"eeee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (194.1ms)
+Completed 200 OK in 1006ms (Views: 686.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-09 17:40:16 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c6fL9oJ+po0jL8SOUh6uRngJwjVryX/f/FIMzcsQXyWqp0THnBnIxhr33xgIdHHiL2x6kZ+mebA4inSWuQSj+g==", "user"=>{"email"=>"elarabyelaidy@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "elarabyelaidy@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 606ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 17:40:17 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (1.3ms)
+  Rendered home/index.html.erb within layouts/application (150.0ms)
+Completed 500 Internal Server Error in 449ms (ActiveRecord: 0.5ms)
+
+
+
+SyntaxError - syntax error, unexpected end, expecting end-of-input
+'.freeze;			 end 
+         			 ^~~:
+  app/views/home/_dashboard.html.erb:29:in `'
+  app/views/home/index.html.erb:2:in `_app_views_home_index_html_erb___1307888337385713378_70037351518040'
+
+Started POST "/__better_errors/ac40e8231874d76d/variables" for ::1 at 2021-11-09 17:40:18 +0200
+Started GET "/" for ::1 at 2021-11-09 17:40:42 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (1.7ms)
+  Rendered home/index.html.erb within layouts/application (113.9ms)
+Completed 500 Internal Server Error in 465ms (ActiveRecord: 0.7ms)
+
+
+
+SyntaxError - syntax error, unexpected end, expecting end-of-input
+'.freeze;			 end 
+         			 ^~~:
+  app/views/home/_dashboard.html.erb:29:in `'
+  app/views/home/index.html.erb:2:in `_app_views_home_index_html_erb___1307888337385713378_70037337029560'
+
+Started POST "/__better_errors/a1324313c8953fc7/variables" for ::1 at 2021-11-09 17:40:43 +0200
