@@ -6,6 +6,9 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable, :confirmable  
 
+
+    has_many :teams 
+    has_many :masl7as
     def attempt_set_password(params)
       p = {}
       p[:password] = params[:password]

@@ -24,4 +24,9 @@
 - concerns _logvalidationserror_, user model include  
 - your password can not be blank issue when sign up  
 - customize views home, dashboard 
-- 
+- Scaffold Team name:string    
+- customize Team View 
+- add user_id to teams table 
+- Scaffold Masl7a name, description 
+- masl7a view 
+- add user_id, team_id to masl7a

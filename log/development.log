@@ -1723,3 +1723,392 @@ SyntaxError - syntax error, unexpected end, expecting end-of-input
   app/views/home/index.html.erb:2:in `_app_views_home_index_html_erb___1307888337385713378_70037337029560'
 
 Started POST "/__better_errors/a1324313c8953fc7/variables" for ::1 at 2021-11-09 17:40:43 +0200
+Started GET "/" for ::1 at 2021-11-09 17:43:49 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (0.9ms)
+  Rendered home/index.html.erb within layouts/application (207.3ms)
+Completed 200 OK in 134502ms (Views: 134426.5ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for ::1 at 2021-11-09 18:12:01 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (1.0ms)
+  Rendered home/index.html.erb within layouts/application (87.5ms)
+Completed 200 OK in 646ms (Views: 490.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 14:12:45 +0200
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?:
+
+Started POST "/__better_errors/f72699fdc2329482/variables" for ::1 at 2021-11-11 14:12:46 +0200
+Started GET "/" for ::1 at 2021-11-11 14:13:37 +0200
+  [1m[35m (17.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_home.html.erb (0.7ms)
+  Rendered home/index.html.erb within layouts/application (187.9ms)
+Completed 200 OK in 140166ms (Views: 140063.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-11-11 14:16:13 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1706.4ms)
+Completed 200 OK in 2328ms (Views: 2235.3ms | ActiveRecord: 55.9ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-11 14:16:17 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CSFGFgbW1szZbqLORkFSbmq0OWlCMr53xFf3+eRPkbmZ6mmmCw9atv4VRY8aDy/bkYLXjO/tgx/dEKAGZkiGyg==", "user"=>{"email"=>"eeee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (24.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "eeee@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 573ms (ActiveRecord: 24.4ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CSFGFgbW1szZbqLORkFSbmq0OWlCMr53xFf3+eRPkbmZ6mmmCw9atv4VRY8aDy/bkYLXjO/tgx/dEKAGZkiGyg==", "user"=>{"email"=>"eeee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (177.9ms)
+Completed 200 OK in 926ms (Views: 620.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-11 14:16:31 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQ3i3MEEdRqz4hs9B5iZwFOzhuGxtu4/ZkCdXK40bcj4xT/NuW7oYGeUDmIPZASWorIscugnvYuqhN/eEbAIjw==", "user"=>{"email"=>"elarabyelaidy@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "elarabyelaidy@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 333ms (ActiveRecord: 0.7ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQ3i3MEEdRqz4hs9B5iZwFOzhuGxtu4/ZkCdXK40bcj4xT/NuW7oYGeUDmIPZASWorIscugnvYuqhN/eEbAIjw==", "user"=>{"email"=>"elarabyelaidy@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (206.9ms)
+Completed 200 OK in 909ms (Views: 597.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-11-11 14:17:17 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (287.4ms)
+Completed 200 OK in 842ms (Views: 839.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-11 14:17:33 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Rl0mOHshInJbpsUxkzEH8io13mIbkBwsE/1aNqsI+JS7lfspA0u/CI/Q0G6bzZqk2zR08UIBT5jfORi0FIyd0w==", "user"=>{"email"=>"eeee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "eeee@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 436ms (ActiveRecord: 0.5ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Rl0mOHshInJbpsUxkzEH8io13mIbkBwsE/1aNqsI+JS7lfspA0u/CI/Q0G6bzZqk2zR08UIBT5jfORi0FIyd0w==", "user"=>{"email"=>"eeee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (339.1ms)
+Completed 200 OK in 1572ms (Views: 1156.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users/sign_in" for ::1 at 2021-11-11 14:19:53 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (219.7ms)
+Completed 200 OK in 794ms (Views: 791.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-11-11 14:20:02 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rEGo26JtNVtj9iQlYcxeB9Ds3zjfORp9SXG6ukGv8JxRiXXK2geoIbeAMXppMMNRIe11q4aoScmFtfg4/iuV2w==", "user"=>{"email"=>"elarabyelaidy@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "elarabyelaidy@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 467ms (ActiveRecord: 0.9ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rEGo26JtNVtj9iQlYcxeB9Ds3zjfORp9SXG6ukGv8JxRiXXK2geoIbeAMXppMMNRIe11q4aoScmFtfg4/iuV2w==", "user"=>{"email"=>"elarabyelaidy@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (224.1ms)
+Completed 200 OK in 1100ms (Views: 734.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  [1m[35m (25.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  [1m[35m (57.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/sign_up" for ::1 at 2021-11-11 14:20:45 +0200
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (197.6ms)
+Completed 200 OK in 1002ms (Views: 999.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2021-11-11 14:20:54 +0200
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lmqwZO72Vx1xStmFYx9xR2QpZF6gBcLIXsnXjjAugJpG2KRi3jwgdyZQpl7S9RaSwHzdknWBmxYfXK/4G3nh1A==", "user"=>{"name"=>"Elaraby Elaidy", "email"=>"elarabyelaidy@gmail.com"}, "commit"=>"Sign up"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elarabyelaidy@gmail.com"], ["LIMIT", 1]]
+Validation failed!
+
+  [1m[35mSQL (45.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "elarabyelaidy@gmail.com"], ["confirmation_token", "4K-NJbLMDyXVKys9TmcF"], ["confirmation_sent_at", "2021-11-11 12:20:54.505774"], ["created_at", "2021-11-11 12:20:54.505444"], ["updated_at", "2021-11-11 12:20:54.505444"], ["name", "Elaraby Elaidy"]]
+  [1m[35m (33.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.4ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1749.7ms
+Sent mail to elarabyelaidy@gmail.com (385.0ms)
+Date: Thu, 11 Nov 2021 14:20:58 +0200
+From: no-reply@ingez.com
+Reply-To: no-reply@ingez.com
+To: elarabyelaidy@gmail.com
+Message-ID: <618d0aaaa57b0_1b542ad4a4d3ace035992@DESKTOP-VOU4LF7.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome elarabyelaidy@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=4K-NJbLMDyXVKys9TmcF">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 4835ms (ActiveRecord: 79.2ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 14:20:59 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_home.html.erb (0.6ms)
+  Rendered home/index.html.erb within layouts/application (59.5ms)
+Completed 200 OK in 434ms (Views: 366.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 14:21:05 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_home.html.erb (0.9ms)
+  Rendered home/index.html.erb within layouts/application (76.5ms)
+Completed 200 OK in 542ms (Views: 444.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=4K-NJbLMDyXVKys9TmcF" for ::1 at 2021-11-11 14:21:10 +0200
+Processing by ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"4K-NJbLMDyXVKys9TmcF"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "4K-NJbLMDyXVKys9TmcF"], ["LIMIT", 1]]
+  Rendering devise/confirmations/show.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_confirmations_show_html_erb__1487702514280852002_70054643904180 at /mnt/f/github/ingez/app/views/devise/confirmations/show.html.erb:5)
+  Rendered devise/confirmations/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 603ms (Views: 596.9ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/user/confirmation" for ::1 at 2021-11-11 14:21:23 +0200
+Processing by ConfirmationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tojS1sA3xzREQWB60xyp0QFk5vWKxw08Zj8vQhv/gx9LQA/HuF1aTpA3dSXb4DSH8GVMZtNWXoiq+23ApHvmWA==", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "confirmation_token"=>"4K-NJbLMDyXVKys9TmcF", "commit"=>"Activate"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "4K-NJbLMDyXVKys9TmcF"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Validation failed!
+
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$/kDFHPtYRLb2wzQI7AWnruxPWkynleBPheXKKG9PRTxijsv1jMUNa"], ["updated_at", "2021-11-11 12:21:23.835215"], ["id", 7]]
+  [1m[35m (36.8ms)[0m  [1m[35mCOMMIT[0m
+Validation failed!
+
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2021-11-11 12:21:23.879121"], ["updated_at", "2021-11-11 12:21:23.880757"], ["id", 7]]
+  [1m[35m (26.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 414ms (ActiveRecord: 65.6ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 14:21:23 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (0.8ms)
+  Rendered home/index.html.erb within layouts/application (112.9ms)
+Completed 200 OK in 493ms (Views: 422.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 14:21:27 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (0.8ms)
+  Rendered home/index.html.erb within layouts/application (73.3ms)
+Completed 200 OK in 516ms (Views: 436.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 14:24:54 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (609.1ms)
+  Rendered home/index.html.erb within layouts/application (679.3ms)
+Completed 500 Internal Server Error in 934ms (ActiveRecord: 0.4ms)
+
+
+
+NameError - undefined local variable or method `new_project_path' for #<#<Class:0x000055a949ea4488>:0x00007f6dbeba4680>
+Did you mean?  new_polymorphic_path:
+  app/views/home/_dashboard.html.erb:12:in `_app_views_home__dashboard_html_erb__2305951479168852299_70054664056940'
+  app/views/home/index.html.erb:2:in `_app_views_home_index_html_erb___3078975144117024617_70054664022060'
+
+Started POST "/__better_errors/5665f06e681a83e9/variables" for ::1 at 2021-11-11 14:24:56 +0200
+Started GET "/" for ::1 at 2021-11-11 14:25:20 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (821.7ms)
+  Rendered home/index.html.erb within layouts/application (904.4ms)
+Completed 500 Internal Server Error in 1206ms (ActiveRecord: 0.8ms)
+
+
+
+NameError - undefined local variable or method `project' for #<#<Class:0x000055a949ea4488>:0x00007f6dbe008ad8>
+Did you mean?  proc:
+  app/views/home/_dashboard.html.erb:22:in `_app_views_home__dashboard_html_erb__2305951479168852299_70054658284200'
+  app/views/home/index.html.erb:2:in `_app_views_home_index_html_erb___3078975144117024617_70054657936160'
+
+Started POST "/__better_errors/70bfd33caa54a95c/variables" for ::1 at 2021-11-11 14:25:22 +0200
+Started GET "/" for ::1 at 2021-11-11 14:25:42 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (709.8ms)
+  Rendered home/index.html.erb within layouts/application (787.2ms)
+Completed 500 Internal Server Error in 1046ms (ActiveRecord: 0.4ms)
+
+
+
+NameError - undefined local variable or method `project' for #<#<Class:0x000055a949ea4488>:0x00007f6dbec5e698>
+Did you mean?  proc:
+  app/views/home/_dashboard.html.erb:25:in `_app_views_home__dashboard_html_erb__2305951479168852299_70054664452300'
+  app/views/home/index.html.erb:2:in `_app_views_home_index_html_erb___3078975144117024617_70054664402820'
+
+Started POST "/__better_errors/b43112bba37d4685/variables" for ::1 at 2021-11-11 14:25:44 +0200
+Started GET "/" for ::1 at 2021-11-11 14:26:00 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (653.7ms)
+  Rendered home/index.html.erb within layouts/application (735.2ms)
+Completed 500 Internal Server Error in 1031ms (ActiveRecord: 0.5ms)
+
+
+
+NameError - undefined local variable or method `new_team_path' for #<#<Class:0x000055a949ea4488>:0x00007f6dbe05b558>
+Did you mean?  new_confirmation_path:
+  app/views/home/_dashboard.html.erb:39:in `_app_views_home__dashboard_html_erb__2305951479168852299_70054658214460'
+  app/views/home/index.html.erb:2:in `_app_views_home_index_html_erb___3078975144117024617_70054658056640'
+
+Started POST "/__better_errors/f878eb2ef312bd45/variables" for ::1 at 2021-11-11 14:26:02 +0200
+Started GET "/users/sign_in" for ::1 at 2021-11-11 14:27:54 +0200
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 14:27:54 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (1.7ms)
+  Rendered home/index.html.erb within layouts/application (118.2ms)
+Completed 200 OK in 646ms (Views: 551.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 14:27:58 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered home/_dashboard.html.erb (0.7ms)
+  Rendered home/index.html.erb within layouts/application (81.7ms)
+Completed 200 OK in 531ms (Views: 424.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4071150568333836750)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTeams (20211111123038)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (403.3ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111123038"]]
+  [1m[35m (29.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (18.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4071150568333836750)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4071150568333836750)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserIdToTeams (20211111123722)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "teams" ADD "user_id" integer[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111123722"]]
+  [1m[35m (39.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4071150568333836750)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4071150568333836750)[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMasl7as (20211111124324)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (234.9ms)[0m  [1m[35mCREATE TABLE "masl7as" ("id" bigserial primary key, "name" character varying, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111124324"]]
+  [1m[35m (27.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4071150568333836750)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4071150568333836750)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserIdToMasl7a (20211111125256)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "masl7as" ADD "user_id" integer[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111125256"]]
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTeamIdToMasl7a (20211111125318)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "masl7as" ADD "team_id" integer[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211111125318"]]
+  [1m[35m (30.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4071150568333836750)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
