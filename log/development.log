@@ -2112,3 +2112,227 @@ Migrating to AddTeamIdToMasl7a (20211111125318)
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4071150568333836750)[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-11-16 00:25:31 +0200
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (179.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (171.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 8 pending migrations:
+
+20211108075936_devise_create_users.rb
+20211108084925_add_username_to_user.rb
+20211108085143_add_team_id_to_users.rb
+20211111123038_create_teams.rb
+20211111123722_add_user_id_to_teams.rb
+20211111124324_create_masl7as.rb
+20211111125256_add_user_id_to_masl7a.rb
+20211111125318_add_team_id_to_masl7a.rb
+
+
+):
+  
+activerecord (6.1.4.1) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.4.1) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.4.1) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.4.1) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.4.1) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (4.3.10) lib/puma/configuration.rb:228:in `call'
+puma (4.3.10) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.10) lib/puma/server.rb:472:in `process_client'
+puma (4.3.10) lib/puma/server.rb:328:in `block in run'
+puma (4.3.10) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "masl7as"[0m
+  [1m[35m (226.1ms)[0m  [1m[35mCREATE TABLE "masl7as" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "team_id" integer)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "teams"[0m
+  [1m[35m (196.1ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (241.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar, "team_id" integer)[0m
+  [1m[35m (276.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (210.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (163.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20211111125318)[0m
+  [1m[35m (177.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20211108075936),
+(20211108084925),
+(20211108085143),
+(20211111123038),
+(20211111123722),
+(20211111124324),
+(20211111125256);
+
+[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-11-15 22:25:52.400951"], ["updated_at", "2021-11-15 22:25:52.400951"]]
+  [1m[36mTRANSACTION (236.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "af9d22ef2fbe8197c1da0c36feb24f6d91979fcd"], ["created_at", "2021-11-15 22:25:52.646314"], ["updated_at", "2021-11-15 22:25:52.646314"]]
+  [1m[36mTRANSACTION (214.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "masl7as"[0m
+  [1m[35m (170.5ms)[0m  [1m[35mCREATE TABLE "masl7as" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "team_id" integer)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "teams"[0m
+  [1m[35m (209.5ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (221.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar, "team_id" integer)[0m
+  [1m[35m (261.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (343.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (258.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (228.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20211111125318)[0m
+  [1m[35m (164.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20211108075936),
+(20211108084925),
+(20211108085143),
+(20211111123038),
+(20211111123722),
+(20211111124324),
+(20211111125256);
+
+[0m
+  [1m[35m (293.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-11-15 22:25:55.066700"], ["updated_at", "2021-11-15 22:25:55.066700"]]
+  [1m[36mTRANSACTION (206.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2021-11-15 22:25:55.280880"], ["key", "environment"]]
+  [1m[36mTRANSACTION (136.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "af9d22ef2fbe8197c1da0c36feb24f6d91979fcd"], ["created_at", "2021-11-15 22:25:55.422929"], ["updated_at", "2021-11-15 22:25:55.422929"]]
+  [1m[36mTRANSACTION (239.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (11.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-11-16 00:26:24 +0200
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_home.html.erb (Duration: 1.4ms | Allocations: 283)
+  Rendered home/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 1111)
+  Rendered layout layouts/application.html.erb (Duration: 3127.8ms | Allocations: 138810)
+Completed 500 Internal Server Error in 3165ms (ActiveRecord: 0.0ms | Allocations: 143172)
+
+
+  
+LoadError (cannot load such file -- coffee_script):
+  
+activesupport (6.1.4.1) lib/active_support/dependencies.rb:332:in `require'
+activesupport (6.1.4.1) lib/active_support/dependencies.rb:332:in `block in require'
+activesupport (6.1.4.1) lib/active_support/dependencies.rb:299:in `load_dependency'
+activesupport (6.1.4.1) lib/active_support/dependencies.rb:332:in `require'
+sprockets (4.0.2) lib/sprockets/autoload/coffee_script.rb:2:in `<top (required)>'
+activesupport (6.1.4.1) lib/active_support/dependencies.rb:332:in `require'
+activesupport (6.1.4.1) lib/active_support/dependencies.rb:332:in `block in require'
+activesupport (6.1.4.1) lib/active_support/dependencies.rb:299:in `load_dependency'
+activesupport (6.1.4.1) lib/active_support/dependencies.rb:332:in `require'
+sprockets (4.0.2) lib/sprockets/coffee_script_processor.rb:17:in `cache_key'
+sprockets (4.0.2) lib/sprockets/coffee_script_processor.rb:23:in `call'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:22:in `block in <class:CompositeProcessor>'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:33:in `call'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.0.2) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.0.2) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.0.2) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.0.2) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.0.2) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.0.2) lib/sprockets/bundle.rb:41:in `block in call'
+sprockets (4.0.2) lib/sprockets/utils.rb:167:in `dfs'
+sprockets (4.0.2) lib/sprockets/bundle.rb:42:in `call'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.0.2) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.0.2) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.0.2) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.0.2) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.0.2) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.0.2) lib/sprockets/bundle.rb:32:in `block in call'
+/usr/share/rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/set.rb:344:in `each_key'
+/usr/share/rvm/rubies/ruby-3.0.1/lib/ruby/3.0.0/set.rb:344:in `each'
+sprockets (4.0.2) lib/sprockets/bundle.rb:31:in `call'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.0.2) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.0.2) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.0.2) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.0.2) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.0.2) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.0.2) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.0.2) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.0.2) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.0.2) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `block in synchronize'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `synchronize'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:47:in `synchronize'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:19:in `execute'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:363:in `run_task'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `block (3 levels) in create_worker'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:335:in `loop'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:335:in `block (2 levels) in create_worker'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `catch'
+concurrent-ruby (1.1.9) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block in create_worker'
