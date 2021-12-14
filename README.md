@@ -1,24 +1,9 @@
-# README
+# Injez 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+injez is a tiny project management app inspired by trello and built with ruby on rails.
+it's part of web-crunch let's build with ruby on rails playlsi. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### built with 
+- ruby 3.0.1 
+- rails 6.1.4 
+- sqlite3 
