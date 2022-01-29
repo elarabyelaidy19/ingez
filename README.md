@@ -1,7 +1,7 @@
 # Injez 
 
 injez is a tiny project management app inspired by trello and built with ruby on rails.
-it's part of web-crunch let's build with ruby on rails playlsi. 
+it's part of web-crunch let's build with ruby on rails Playlist. 
 
 ### built with 
 - ruby 3.0.1 
